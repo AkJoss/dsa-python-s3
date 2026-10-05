@@ -4,36 +4,37 @@ Created on Thu Oct 24 17:44:02 2024
 
 @author: José Alberto Rocha Munguía
 """
-import time
+
+"""
+Bubble sort implementation (DSA coursework).
+
+Import Bubble_Sort from other scripts, or run this file for a timed demo.
+
+Quick test:
+  python3 bubble_sort.py
+  Expect sorted=True and an execution-time line (demo uses 5000 ints).
+"""
 import random
+import time
+
 
 def Bubble_Sort(arr):
+    """Sort arr in ascending order with bubble sort; return the same list."""
     n = len(arr)
-    for i in range(n-1):
-        # print(f"Pass,", i)
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                # Swap
-                # print (arr)
+    for i in range(n - 1):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
                 aux = arr[j]
-                arr[j] = arr[j+1]
-                arr[j+1] = aux
-                # print(f"Swapping {arr[j]} for {arr[j+1]}")
-                # print (arr)
-        # print(f"End of pass,", i)
+                arr[j] = arr[j + 1]
+                arr[j + 1] = aux
     return arr
 
-# Usage example
-# arr = [5, 3, 8, 4, 2]
-arr = [random.randint(1, 100) for i in range(50000)]
 
-# Measure execution time
-start_time = time.time()
-print(Bubble_Sort(arr))
-
-# Finished sorting the array
-end_time = time.time()
-
-# Show execution time
-print(f"Sorting {len(arr)} numbers takes:\n ")
-print("Execution time: {:.9f} seconds".format(end_time - start_time))
+if __name__ == "__main__":
+    arr = [random.randint(1, 100) for _ in range(5000)]
+    start_time = time.time()
+    Bubble_Sort(arr)
+    end_time = time.time()
+    ok = all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
+    print(f"Bubble sort done. n={len(arr)}, sorted={ok}")
+    print("Execution time: {:.9f} seconds".format(end_time - start_time))

@@ -1,43 +1,44 @@
-"""
-Sorting Benchmark (DSA coursework).
-
-@author José Alberto Rocha Munguía
-"""
-
 # -*- coding: utf-8 -*-
 """
 Created on Thu Oct 24 18:17:02 2024
 
 @author: josea
 """
+
+"""
+Benchmark bubble sort vs insertion sort (DSA coursework).
+
+Runs both on a random list and prints timing. After bubble sort the list is
+already sorted, so insertion sort is much faster on the second pass (original
+coursework behavior).
+
+Quick test (from this folder):
+  python3 sorting_benchmark.py
+  Expect two timing blocks; bubble slower than insertion on the second run.
+  Demo size is 8000 ints (full 50k bubble takes a long time).
+"""
 import random
 import time
+
 from bubble_sort import Bubble_Sort
 from insertion_sort import Insertion_Sort
 
-#ejemplo de uso
-#arr = [5,3,8,4,2]
-arr = [random.randint(1,50) for i in range(50000)]
-print(f"Ordenar {len(arr)} numeros lleva:\n")
-###########################################
-############ BUBBLE SORT ##################
-###########################################
+N = 8000
+arr = [random.randint(1, 50) for _ in range(N)]
+print(f"Sorting {len(arr)} numbers:\n")
 
-#medir el tiempo de ejecución
+print("############ BUBBLE SORT ##################")
 start_time = time.time()
-print(Bubble_Sort(arr))
-#Termine de ordenar el arreglo
+Bubble_Sort(arr)
 end_time = time.time()
-#mostrar el tiempo de ejecución
-print("Tiempo de ejecucion: {:.6f} segundos".format(end_time - start_time))
+ok_bubble = all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
+print(f"sorted={ok_bubble}")
+print("Execution time: {:.6f} seconds".format(end_time - start_time))
 
-###########################################
-############ INSERTION SORT ###############
-###########################################
-#medir el tiempo de ejecución
+print("\n############ INSERTION SORT ###############")
 start_time = time.time()
-print(Insertion_Sort(arr))
-#Termine de ordenar el arreglo
+Insertion_Sort(arr)
 end_time = time.time()
-#mostrar el tiempo de ejecución
-print("Tiempo de ejecucion: {:.6f} segundos".format(end_time - start_time))
+ok_ins = all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
+print(f"sorted={ok_ins}")
+print("Execution time: {:.6f} seconds".format(end_time - start_time))

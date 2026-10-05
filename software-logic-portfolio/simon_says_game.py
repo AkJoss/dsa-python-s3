@@ -4,6 +4,16 @@ Created on Thu Sep 26 18:12:42 2024
 
 @author: José Alberto Rocha Munguía
 """
+
+"""
+Simon Says GUI game with tkinter (DSA coursework).
+
+Interactive — open a window, press Start, repeat the color sequence.
+Not fully automatable in headless mode; syntax/import check only in CI-style smoke.
+
+Run:
+  python3 simon_says_game.py
+"""
 import tkinter as tk
 from tkinter import messagebox
 import random

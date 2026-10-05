@@ -5,44 +5,51 @@ Created on Thu Sep  5 18:39:27 2024
 @author: José Alberto Rocha Munguía
 """
 
+"""
+Stack implemented with a linked list (DSA coursework).
+
+Quick test:
+  python3 stack_linked_list.py
+  Expect push/pop/display lines ending with Nicolas Maduro on top.
+"""
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
+
 class Stack:
     def __init__(self):
         self.top = None
-    
+
     def push(self, data):
         print(f"Adding {data} to the top of the stack")
-        # If there is no data, add the element as the top element
-        if self.top == None:
+        if self.top is None:
             self.top = Node(data)
-            return 0 
-        
+            return
+
         new_node = Node(data)
         new_node.next = self.top
         self.top = new_node
-        
+
     def pop(self):
-        # If there is no data in the top node, we return
-        if self.top == None:
+        if self.top is None:
             print("There are no elements in the stack to pop")
-            return 0
+            return
         print(f"Popping {self.top.data}")
-        self.top = self.top.next 
-    
+        self.top = self.top.next
+
     def display(self):
         print("Displaying the stack")
-        # Traverse the stack and print values
-        temp_node = self.top 
-        while temp_node != None:
+        temp_node = self.top
+        while temp_node is not None:
             print(f"{temp_node.data}", end=", ")
-            temp_node = temp_node.next 
+            temp_node = temp_node.next
         print("")
 
-# --- Stack Usage ---
+
 stack = Stack()
 stack.push("Leon S. Kennedy")
 stack.push("SpongeBob")
@@ -57,3 +64,4 @@ stack.display()
 
 stack.push("Nicolas Maduro")
 stack.display()
+

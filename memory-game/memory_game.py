@@ -4,14 +4,24 @@ Created on Thu Sep 12 16:37:59 2024
 
 @author: José Alberto Rocha Munguía
 """
+
+"""
+Memory matching game with a stack of moves (DSA coursework).
+
+4x4 board of fruit pairs; click two cards to match. Uses pygame.
+Run from this folder so PNG assets resolve.
+
+Quick test:
+  /opt/anaconda3/bin/python3 memory_game.py
+  Expect a window "Memory Game - Data Structures", Restart/Exit buttons.
+  Match all pairs → "You Won! :D"
+"""
 import pygame
 import random
 import sys
 
-# Initialize Pygame
 pygame.init()
 
-# Constants
 WINDOW_WIDTH = 600
 WINDOW_HEIGHT = 700
 MARGIN = 10
@@ -19,26 +29,24 @@ ROWS = 4
 COLS = 4
 CARD_SIZE = 100
 
-# Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 CRAZY_RED = (223, 68, 68)
 DARK_BLUE = (30, 77, 148)
 
-# Load images (Ensure these files are in the same folder)
+# PNGs must sit next to this script
 image_files = [
     "watermelon.png", "banana.png", "guava.png", "tomato.png",
     "apple.png", "grape.png", "orange.png", "pear.png"
 ]
 
-# Note: Using placeholders if images are missing; replace with your local paths
 try:
     card_images = [pygame.image.load(img) for img in image_files]
     back_image = pygame.image.load("brain.png")
-except:
-    # Fallback if images aren't found during translation test
+except (pygame.error, FileNotFoundError):
     card_images = [pygame.Surface((CARD_SIZE, CARD_SIZE)) for _ in image_files]
     back_image = pygame.Surface((CARD_SIZE, CARD_SIZE))
+
 
 # Scale images
 card_images = [pygame.transform.scale(img, (CARD_SIZE, CARD_SIZE)) for img in card_images]

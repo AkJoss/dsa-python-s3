@@ -4,7 +4,12 @@ Created on Thu Oct 17 17:55:52 2024
 
 @author: José Alberto Rocha Munguía
 """
+
+"""
+Player bullet for Galatsia (moves upward; sprite or circle fallback).
+"""
 import pygame
+
 
 class Bullet:
     def __init__(self, x, y, image=None):

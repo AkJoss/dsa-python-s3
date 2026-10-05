@@ -5,6 +5,20 @@ Created on Thu Oct 17 16:27:02 2024
 @author: José Alberto Rocha Munguía
 """
 
+"""
+Galatsia — space shooter pygame game (DSA coursework).
+
+Run from this folder so images/ and music/ resolve.
+
+Controls:
+  WASD  move
+  SPACE shoot
+  C     special clear (cooldown bar)
+
+Quick test:
+  /opt/anaconda3/bin/python3 main.py
+  Expect window "GALATSIA", ambient music, score/lives UI.
+"""
 import pygame
 from player import Player
 from bullets import Bullet
@@ -12,7 +26,6 @@ from enemy import Enemy
 from special_enemy import SpecialEnemy
 import random
 
-# Initializing pygame
 pygame.init()
 pygame.mixer.init(buffer=512)
 

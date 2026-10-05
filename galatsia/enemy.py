@@ -4,8 +4,13 @@ Created on Thu Oct 17 17:23:38 2024
 
 @author: José Alberto Rocha Munguía
 """
+
+"""
+Regular enemy for Galatsia (falls down; multi-sprite health / explosion).
+"""
 import pygame
 import random
+
 
 class Enemy:
     def __init__(self, images=None):

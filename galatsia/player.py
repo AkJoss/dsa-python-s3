@@ -5,7 +5,11 @@ Created on Thu Oct 17 17:00:34 2024
 @author: José Alberto Rocha Munguía
 """
 
+"""
+Player ship for Galatsia (WASD movement, lives, sprite).
+"""
 import pygame
+
 
 class Player:
     def __init__(self, x, y, image=None):

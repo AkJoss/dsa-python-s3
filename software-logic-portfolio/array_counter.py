@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 """
+Created on Thu Oct 24 17:20:01 2024
+
+@author: José Alberto Rocha Munguía
+"""
+
+"""
 Array size demo (DSA coursework).
 
 Builds a list of random ints, prints its length with a counter, then
@@ -12,8 +18,6 @@ Quick test:
   /opt/anaconda3/bin/python3 array_counter.py
   Expect three lines: List content, The array size is: N, Size calculated by function: N
   (same N twice)
-
-@author: José Alberto Rocha Munguía
 """
 import random
 

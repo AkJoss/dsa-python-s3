@@ -5,40 +5,41 @@ Created on Thu Nov  7 17:58:35 2024
 @author: José Alberto Rocha Munguía
 """
 
+"""
+Binary search demo (DSA coursework).
+
+Sorts a fixed list, then searches for a target with classic binary search
+(returns on the first match).
+
+Quick test:
+  /opt/anaconda3/bin/python3 binary_search.py
+  Expect sorted list and: Element 8 was found at position 9
+  (list has two 8s; binary search returns the mid hit, here index 9)
+"""
+
+
 def binary_search(arr, goal):
-    # Define start and end points
     start = 0
     end = len(arr) - 1
-    count = 0
-    indices = []
-    
+
     while start <= end:
-        # Calculate the middle element index
         mid = (start + end) // 2
-        
-        # Compare the middle element with the goal
+
         if arr[mid] == goal:
-            count += 1
-            indices.append(mid)
-            # Binary search typically returns after finding one instance.
-            # To find all occurrences, specialized logic is needed.
             return f"Element {goal} was found at position {mid}"
-            
-        elif arr[mid] < goal:
-            # Adjust start to search in the right half
-            start = mid + 1 
+        if arr[mid] < goal:
+            start = mid + 1
         else:
-            # Adjust end to search in the left half
             end = mid - 1
-            
+
     return f"Value {goal} was not found"
 
-# Main execution
+
 big_list = [5, 14, 11, 8, 6, 2, 9, 4, 8, 2, 1, 5, 7]
 big_list.sort()
 
 print("Sorted list:")
-print(big_list)  
+print(big_list)
 
 target = 8
 print(binary_search(big_list, target))
